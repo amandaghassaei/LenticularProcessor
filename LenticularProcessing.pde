@@ -52,7 +52,7 @@ void setup(){
   image(output,0,0);
   save(filename+"Processed.png");
   println("finished");
-  exit();
+//  exit();
 }
 
 void blurImage(PImage img, PImage output, int index, int blurWidth){
