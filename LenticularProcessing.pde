@@ -3,8 +3,9 @@
 //variables to change
 int LPI = 60;//number of lenticulars per inch - this is a spec of the lectucular sheet
 int printerDPI = 600;//dpi of printer
-String filename = "gg/gg";
-String extension = ".png";
+String filename = "michael/michael";
+String extension = ".png";//filetype of source images
+int numImgs = 2;//number of source images -> (printerDPI/LPI)/numImgs should be an integer
 
 void setup(){
   
@@ -27,10 +28,17 @@ void setup(){
     exit();
     return;
   }
+  if (pxPerLenticular%numImgs > 0) {
+    println("number of images " + numImgs + " is not a factor of px per lenticular " + pxPerLenticular + "px");
+    exit();
+    return;
+  }
   println("pixels per lenticular: " + pxPerLenticular);
     
+  int pxPerImg = pxPerLenticular/numImgs;
   for (index=0;index<pxPerLenticular;index++){
-    img = loadImage(filename+index+extension);
+    int fileNum = floor(index/pxPerImg);
+    img = loadImage(filename+fileNum+extension);
     if (img.width != width || img.height != height){
       println("images should all be the same size, please fix");
       exit();
