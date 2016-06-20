@@ -2,7 +2,7 @@
 //variables
 float statedLPI = 60;//LPI described by spec sheet
 float statedDPI = 600;//dpi of printer, according to manufacturer
-float calibrationRes = 0.1;//resolution of calibration tests, measured in LPI
+float calibrationRes = 0.01;//resolution of calibration tests, measured in LPI
 int numTests = 8;//num tests (on each side of statedLPI)
 int testStripHeight = 300;//px
 int testStripWidth = 3000;//px
