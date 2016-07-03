@@ -3,9 +3,10 @@
 //variables to change
 int LPI = 60;//number of lenticulars per inch - this is a spec of the lectucular sheet
 int printerDPI = 600;//dpi of printer
-String filename = "michael/michael";
+String filename = "gg/gg";
 String extension = ".png";//filetype of source images
-int numImgs = 2;//number of source images -> (printerDPI/LPI)/numImgs should be an integer
+int numImgs = 10;//number of source images -> (printerDPI/LPI)/numImgs should be an integer
+boolean reverseImgOrder = false;
 
 void setup(){
   
@@ -44,7 +45,8 @@ void setup(){
       exit();
       return;
     }
-    blurImage(img, output, index, pxPerLenticular);
+    if (reverseImgOrder) blurImage(img, output, pxPerLenticular-1-index, pxPerLenticular);
+    else blurImage(img, output, index, pxPerLenticular);
     println(int((index+1)/float(pxPerLenticular)*100) + "% complete");
   }
   
